@@ -3,3 +3,6 @@ spring:
     url: ${DATABASE_URL}
     username: ${DATABASE_USER_NAME}
     password: ${DATABASE_PASSWORD}
+
+  liquibase:
+    default-schema: sc_identity
