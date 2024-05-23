@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: Person.sql
+  - include:
+      file: PhoneContact.sql
+  - include:
+      file: EmailContact.sql
+
+
