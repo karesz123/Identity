@@ -3,5 +3,6 @@ CREATE TABLE TABLE phone {
     phone varchar(255) NOT NULL,
     preferred bit DEFAULT 0,
     created_ts TIMESTAMP NOT NULL,
-    modified_ts TIMESTAMP NOT NULL
+    modified_ts TIMESTAMP NOT NULL,
+    CONSTRAINT fk_phone_uuid_phone FOREIGN KEY(phone_uuid, phone) REFERENCES person(person_uuid)
 }

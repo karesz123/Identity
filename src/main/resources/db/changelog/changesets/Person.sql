@@ -1,4 +1,4 @@
-CREATE TABLE TABLE Person {
+CREATE TABLE TABLE person {
     person_uuid varchar(36) PRIMARY KEY NOT NULL,
     first_name varchar(255) NOT NULL,
     last_name varchar(255) NOT NULL,
