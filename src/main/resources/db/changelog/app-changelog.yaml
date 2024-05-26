@@ -1,9 +1,9 @@
 databaseChangeLog:
   - include:
-      file: Person.sql
+      file: db/changelog/changesets/Person.sql
   - include:
-      file: PhoneContact.sql
+      file: db/changelog/changesets/Phone.sql
   - include:
-      file: EmailContact.sql
+      file: db/changelog/changesets/Email.sql
 
 
