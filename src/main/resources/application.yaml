@@ -6,4 +6,3 @@ spring:
 
   liquibase:
     change-log: classpath:/db/changelog/app-changelog.yaml
-    default-schema: sc_identity
