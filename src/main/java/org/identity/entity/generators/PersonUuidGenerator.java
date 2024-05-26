@@ -1,4 +1,4 @@
-package org.identity.entities.generators;
+package org.identity.entity.generators;
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.generator.BeforeExecutionGenerator;
