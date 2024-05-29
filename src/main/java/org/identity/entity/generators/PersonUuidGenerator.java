@@ -14,7 +14,8 @@ public class PersonUuidGenerator implements BeforeExecutionGenerator {
   private final String UUID_PREFIX = "person-";
 
   @Override
-  public Object generate(SharedSessionContractImplementor session, Object owner, Object currentValue, EventType eventType) {
+  public Object generate(SharedSessionContractImplementor session, Object owner,
+                         Object currentValue, EventType eventType) {
     return UUID_PREFIX + UUID.randomUUID();
   }
 

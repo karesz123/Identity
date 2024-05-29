@@ -1,14 +1,14 @@
 package org.identity.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.identity.annotation.EmailUuidGeneratorType;
 
 @Entity
 public class EmailEntity {
 
     @Id
-    @GeneratedValue(generator = "")
+    @EmailUuidGeneratorType(name = "EmailUuidGeneratorType")
     private String email_uuid;
 
 }
