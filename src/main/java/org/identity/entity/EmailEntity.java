@@ -1,9 +1,14 @@
 package org.identity.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.identity.annotation.EmailUuidGeneratorType;
 
+@Data
+@EqualsAndHashCode(callSuper=true)
 @Entity
+@Table(name = "email")
 public class EmailEntity extends BaseEntity{
 
     @Id

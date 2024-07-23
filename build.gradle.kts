@@ -16,7 +16,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("com.googlecode.jmapper-framework:jmapper-core:1.6.0")
 
     implementation("org.liquibase:liquibase-core")
     implementation("com.microsoft.sqlserver:mssql-jdbc:12.6.2.jre11")
@@ -24,10 +23,6 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-}
-
-tasks.compileJava {
-    options.compilerArgs  = listOf("-Amapstruct.defaultComponentModel=spring")
 }
 
 tasks.test {
