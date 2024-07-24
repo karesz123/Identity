@@ -14,6 +14,7 @@ import java.util.List;
 public class PersonService {
 
     private final PersonRepository personRepository;
+    private final PasswordService passwordService;
     private final ModelMapper modelMapper;
 
     public List<PersonDto> collectAllPersons() {
@@ -23,6 +24,7 @@ public class PersonService {
 
     public void createPerson(PersonDto personDto) {
         PersonEntity person = modelMapper.map(personDto, PersonEntity.class);
+        person.setPassword(passwordService.encode(person.getPassword()));
         personRepository.save(person);
     }
 }
