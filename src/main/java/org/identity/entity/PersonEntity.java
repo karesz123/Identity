@@ -3,11 +3,13 @@ package org.identity.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.identity.annotation.PersonUuidGeneratorType;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Entity
 @Table(name = "person")

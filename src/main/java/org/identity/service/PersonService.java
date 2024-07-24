@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.identity.dto.PersonDto;
 import org.identity.entity.PersonEntity;
 import org.identity.repository.PersonRepository;
-import org.springframework.core.convert.ConversionService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +14,15 @@ import java.util.List;
 public class PersonService {
 
     private final PersonRepository personRepository;
-    private final ConversionService conversionService;
+    private final ModelMapper modelMapper;
 
     public List<PersonDto> collectAllPersons() {
         List<PersonEntity> persons = personRepository.findAll();
-        return persons.stream().map(personEntity -> conversionService.convert(PersonEntity.class, PersonDto.class)).toList();
+        return persons.stream().map(personEntity -> modelMapper.map(PersonEntity.class, PersonDto.class)).toList();
+    }
+
+    public void createPerson(PersonDto personDto) {
+        PersonEntity person = modelMapper.map(personDto, PersonEntity.class);
+        personRepository.save(person);
     }
 }

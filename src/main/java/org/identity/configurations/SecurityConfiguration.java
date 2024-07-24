@@ -12,7 +12,7 @@ import java.util.Map;
 @Configuration
 public class SecurityConfiguration {
 
-    private final String  ENCODING_ID = "argon2" ;
+    private final String ENCODING_ID = "argon2" ;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
