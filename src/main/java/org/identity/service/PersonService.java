@@ -5,6 +5,8 @@ import org.identity.dto.PersonDto;
 import org.identity.entity.PersonEntity;
 import org.identity.repository.PersonRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,14 +19,16 @@ public class PersonService {
     private final PasswordService passwordService;
     private final ModelMapper modelMapper;
 
-    public List<PersonDto> collectAllPersons() {
-        List<PersonEntity> persons = personRepository.findAll();
-        return persons.stream().map(personEntity -> modelMapper.map(PersonEntity.class, PersonDto.class)).toList();
+    public List<PersonDto> collectAllPersons(Pageable pageable) {
+        Page<PersonEntity> persons = personRepository.findAll(pageable);
+        return persons.stream()
+                .map(personEntity -> modelMapper.map(PersonEntity.class, PersonDto.class))
+                .toList();
     }
 
     public void createPerson(PersonDto personDto) {
         PersonEntity person = modelMapper.map(personDto, PersonEntity.class);
         person.setPassword(passwordService.encode(person.getPassword()));
-        personRepository.save(person);
+        personRepository.saveAndFlush(person);
     }
 }

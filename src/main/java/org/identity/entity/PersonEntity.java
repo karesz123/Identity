@@ -23,9 +23,9 @@ public class PersonEntity extends BaseEntity {
   private String lastName;
   private String password;
 
-  @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
   List<EmailEntity> emails;
-  @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
   List<PhoneEntity> phones;
 
 }
