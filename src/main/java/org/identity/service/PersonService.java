@@ -17,17 +17,18 @@ public class PersonService {
 
     private final PersonRepository personRepository;
     private final PasswordService passwordService;
-    private final ModelMapper modelMapper;
+    private final ModelMapper personEntityToPersonDtoMapper;
+    private final ModelMapper personDtoToPersonEntityMapper;
 
     public List<PersonDto> collectAllPersons(Pageable pageable) {
         Page<PersonEntity> persons = personRepository.findAll(pageable);
         return persons.stream()
-                .map(personEntity -> modelMapper.map(PersonEntity.class, PersonDto.class))
+                .map(personEntity -> personEntityToPersonDtoMapper.map(PersonEntity.class, PersonDto.class))
                 .toList();
     }
 
     public void createPerson(PersonDto personDto) {
-        PersonEntity person = modelMapper.map(personDto, PersonEntity.class);
+        PersonEntity person = personDtoToPersonEntityMapper.map(personDto, PersonEntity.class);
         person.setPassword(passwordService.encode(person.getPassword()));
         personRepository.saveAndFlush(person);
     }
