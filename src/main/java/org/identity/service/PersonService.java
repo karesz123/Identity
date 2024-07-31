@@ -27,9 +27,10 @@ public class PersonService {
                 .toList();
     }
 
-    public void createPerson(PersonDto personDto) {
+    public PersonDto createPerson(PersonDto personDto) {
         PersonEntity person = personDtoToPersonEntityMapper.map(personDto, PersonEntity.class);
         person.setPassword(passwordService.encode(person.getPassword()));
-        personRepository.saveAndFlush(person);
+        PersonEntity flushedPersonEntity = personRepository.saveAndFlush(person);
+        return personEntityToPersonDtoMapper.map(flushedPersonEntity, PersonDto.class);
     }
 }

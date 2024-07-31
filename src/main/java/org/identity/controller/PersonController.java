@@ -26,8 +26,8 @@ public class PersonController {
 
     @PostMapping(path = "/create-person")
     public ResponseEntity<?> createPerson(@RequestBody PersonDto personDto) {
-        personService.createPerson(personDto);
-        return ResponseEntity.of(Optional.empty());
+        PersonDto createdPersonDto = personService.createPerson(personDto);
+        return ResponseEntity.of(Optional.of(createdPersonDto));
     }
 
     @GetMapping(path = "/persons")
