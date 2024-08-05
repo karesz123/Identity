@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 @RequiredArgsConstructor
-public class JwtUtil {
+public class JwtService {
 
     private final JwtConfig jwtConfig;
 
