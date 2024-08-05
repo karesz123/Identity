@@ -5,7 +5,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 @Data
-public class JwtConfiguration {
+public class JwtConfig {
 
     @Value("identity.jwtExpirationInMs")
     private int jwtExpirationMs;

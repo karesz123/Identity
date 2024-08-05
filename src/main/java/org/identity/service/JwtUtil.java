@@ -1,11 +1,11 @@
-package org.identity.jwt;
+package org.identity.service;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
-import org.identity.configurations.JwtConfiguration;
+import org.identity.configurations.JwtConfig;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
@@ -13,7 +13,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class JwtUtil {
 
-    private final JwtConfiguration jwtConfiguration;
+    private final JwtConfig jwtConfig;
 
     public String generateToken() {
         Date issuedAt = new Date(System.currentTimeMillis());
@@ -40,12 +40,12 @@ public class JwtUtil {
     }
 
     private SecretKey generateSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtConfiguration.getJwtSecretKey());
+        byte[] keyBytes = Decoders.BASE64.decode(jwtConfig.getJwtSecretKey());
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
     private Date calculateExpirationDate(Date issuedDate) {
-        return new Date(issuedDate.getTime() + jwtConfiguration.getJwtExpirationMs());
+        return new Date(issuedDate.getTime() + jwtConfig.getJwtExpirationMs());
     }
 }
 

@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class SecurityConfig {
 
     private final String ENCODING_ID = "argon2" ;
 
