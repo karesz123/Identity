@@ -25,12 +25,12 @@ public class JwtService {
                 .compact();
     }
 
-    public boolean validateToken(String authtoken) {
+    public boolean validateToken(String authToken) {
         try {
             Jwts.parser()
                     .verifyWith(generateSigningKey())
                     .build()
-                    .parseSignedClaims(authtoken);
+                    .parseSignedClaims(authToken);
             return true;
         } catch (JwtException e) {
             throw new RuntimeException(e);
