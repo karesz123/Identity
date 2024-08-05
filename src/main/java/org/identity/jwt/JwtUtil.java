@@ -25,15 +25,6 @@ public class JwtUtil {
                 .compact();
     }
 
-    private SecretKey generateSigningKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtConfiguration.getJwtSecretKey());
-        return Keys.hmacShaKeyFor(keyBytes);
-    }
-
-    private Date calculateExpirationDate(Date issuedDate) {
-        return new Date(issuedDate.getTime() + jwtConfiguration.getJwtExpirationMs());
-    }
-
     public boolean validateToken(String authtoken) {
         try {
             Jwts.parser()
@@ -46,6 +37,15 @@ public class JwtUtil {
         } catch (IllegalArgumentException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private SecretKey generateSigningKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(jwtConfiguration.getJwtSecretKey());
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+
+    private Date calculateExpirationDate(Date issuedDate) {
+        return new Date(issuedDate.getTime() + jwtConfiguration.getJwtExpirationMs());
     }
 }
 
