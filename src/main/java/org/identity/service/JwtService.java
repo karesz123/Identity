@@ -6,11 +6,13 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import org.identity.configurations.JwtConfig;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
 
 @RequiredArgsConstructor
+@Service
 public class JwtService {
 
     private final JwtConfig jwtConfig;
