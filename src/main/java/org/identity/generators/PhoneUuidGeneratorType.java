@@ -1,4 +1,4 @@
-package org.identity.annotation;
+package org.identity.generators;
 
 import org.hibernate.annotations.IdGeneratorType;
 import org.identity.entity.generators.PhoneUuidGenerator;

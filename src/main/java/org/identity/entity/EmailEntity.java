@@ -3,7 +3,7 @@ package org.identity.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.identity.annotation.EmailUuidGeneratorType;
+import org.identity.generators.EmailUuidGeneratorType;
 
 @Data
 @EqualsAndHashCode(callSuper=true)

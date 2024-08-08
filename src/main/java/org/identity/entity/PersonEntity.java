@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.identity.annotation.PersonUuidGeneratorType;
+import org.identity.generators.PersonUuidGeneratorType;
 
 import java.util.List;
 
