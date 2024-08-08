@@ -3,12 +3,14 @@ package org.identity.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.identity.validator.PersonsContacts;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
+@PersonsContacts
 public class PersonDto {
 
     private String firstName;
