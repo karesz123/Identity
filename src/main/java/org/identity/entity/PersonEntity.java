@@ -17,7 +17,7 @@ public class PersonEntity extends BaseEntity {
 
   @Id
   @PersonUuidGeneratorType(name = "PersonUuidGeneratorType")
-  private String person_uuid;
+  private String personUuid;
   private String firstName;
 
   private String lastName;

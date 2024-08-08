@@ -13,7 +13,7 @@ public class PhoneEntity extends BaseEntity{
 
     @Id
     @PhoneUuidGeneratorType(name = "PhoneUuidGeneratorType")
-    private String phone_uuid;
+    private String phoneUuid;
 
     private String phone;
 

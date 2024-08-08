@@ -13,7 +13,7 @@ public class EmailEntity extends BaseEntity{
 
     @Id
     @EmailUuidGeneratorType(name = "EmailUuidGeneratorType")
-    private String email_uuid;
+    private String emailUuid;
 
     private String email;
 
