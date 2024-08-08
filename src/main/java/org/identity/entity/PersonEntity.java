@@ -18,8 +18,8 @@ public class PersonEntity extends BaseEntity {
   @Id
   @PersonUuidGeneratorType(name = "PersonUuidGeneratorType")
   private String person_uuid;
-
   private String firstName;
+
   private String lastName;
   private String password;
 

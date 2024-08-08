@@ -23,11 +23,21 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String authorizationToken = request.getHeader(AUHORIZATION);
-        if (authorizationToken != null && authorizationToken.startsWith(BEARER)) {
-            authorizationToken = authorizationToken.split(BEARER)[1].stripLeading();
+        String authorizationHeaderValue = request.getHeader(AUHORIZATION);
+        if (isAuthorizationTokenPresent(authorizationHeaderValue)) {
+            String authorizationToken = extractAuthorizationToken(authorizationHeaderValue);
+            if (jwtService.validateToken(authorizationToken)) {
+                // authenticate here
+            }
         }
         filterChain.doFilter(request, response);
+    }
 
+    private boolean isAuthorizationTokenPresent(String authorizationHeaderValue) {
+        return authorizationHeaderValue != null && authorizationHeaderValue.startsWith(BEARER);
+    }
+
+    private String extractAuthorizationToken(String authorizationToken) {
+        return  authorizationToken.split(BEARER)[1].stripLeading();
     }
 }
