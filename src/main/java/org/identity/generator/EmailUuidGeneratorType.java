@@ -1,4 +1,4 @@
-package org.identity.generators;
+package org.identity.generator;
 
 import org.hibernate.annotations.IdGeneratorType;
 import org.identity.entity.generators.EmailUuidGenerator;

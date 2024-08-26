@@ -3,6 +3,7 @@ package org.identity.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -13,6 +14,7 @@ public class AuthenticationService {
 
     public void authenticate(Authentication authentication) {
         authenticationManager.authenticate(authentication);
+        SecurityContextHolder.getContext().setAuthentication();
     }
 
 }

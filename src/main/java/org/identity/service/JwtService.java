@@ -6,6 +6,7 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import org.identity.configurations.JwtConfig;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -17,7 +18,7 @@ public class JwtService {
 
     private final JwtConfig jwtConfig;
 
-    public String generateToken() {
+    public String generateToken(Authentication authentication) {
         Date issuedAt = new Date(System.currentTimeMillis());
         return Jwts.builder()
                 .subject("userName")
